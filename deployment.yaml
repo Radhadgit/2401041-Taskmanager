@@ -1,6 +1,12 @@
-# =====================================================================
-# DEPLOYMENT
-# =====================================================================
+# -------------------------------
+# Namespace (Auto-create if missing)
+# -------------------------------
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: "2401041"
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -17,10 +23,10 @@ spec:
         app: taskmanager-app
     spec:
       imagePullSecrets:
-        - name: nexus-secret
+        - name: nexus-secret   # ⚠️ DO NOT CHANGE
 
       containers:
-        - name: taskmanager-container
+        - name: taskmanager-app
           image: nexus-service-for-docker-hosted-registry.nexus.svc.cluster.local:8085/2401041/2401041-taskmanager-frontend:latest
           imagePullPolicy: Always
 
@@ -33,12 +39,13 @@ spec:
                 secretKeyRef:
                   name: taskmanager-secret
                   key: MONGODB_URI
-
             - name: JWT_SECRET
               valueFrom:
                 secretKeyRef:
                   name: taskmanager-secret
                   key: JWT_SECRET
+            - name: DEBUG
+              value: "0"
 
           readinessProbe:
             httpGet:
@@ -62,10 +69,16 @@ spec:
               cpu: "500m"
               memory: "512Mi"
 
+          volumeMounts:
+            - name: app-storage
+              mountPath: /app/data
+
+      volumes:
+        - name: app-storage
+          persistentVolumeClaim:
+            claimName: app-pvc
+
 ---
-# =====================================================================
-# SERVICE
-# =====================================================================
 apiVersion: v1
 kind: Service
 metadata:
@@ -81,9 +94,6 @@ spec:
   type: ClusterIP
 
 ---
-# =====================================================================
-# INGRESS
-# =====================================================================
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
