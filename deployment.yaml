@@ -66,17 +66,17 @@ spec:
 
           readinessProbe:
             httpGet:
-              path: /
+              path: /api/ready
               port: 8000
             initialDelaySeconds: 15
             periodSeconds: 10
 
           livenessProbe:
             httpGet:
-              path: /
+              path: /api/ready
               port: 8000
-            initialDelaySeconds: 40
-            periodSeconds: 30
+          initialDelaySeconds: 40
+          periodSeconds: 30
 
           resources:
             requests:

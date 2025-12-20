@@ -3,9 +3,8 @@ import connectDB from '@/utils/db';
 
 export async function GET() {
   try {
-    // Check database connection
     await connectDB();
-    
+
     return NextResponse.json(
       {
         status: 'healthy',
@@ -27,4 +26,3 @@ export async function GET() {
     );
   }
 }
-
