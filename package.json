@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "A simple Task Manager built with Next.js, MongoDB, and JWT authentication",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start -p 8000",
+  "lint": "next lint"
+}
+,
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cookie": "^0.6.0",
