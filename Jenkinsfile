@@ -63,7 +63,7 @@ spec:
 
         stage('Checkout Code') {
             steps {
-                git url: 'https://github.com/Radhadgit/TaskManager-webapp.git', branch: 'main'
+                git url: 'https://github.com/Radhadgit/2401041-Taskmanager.git', branch: 'main'
             }
         }
 
