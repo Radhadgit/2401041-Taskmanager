@@ -6,6 +6,23 @@ kind: Namespace
 metadata:
   name: "2401041"
 
+# -------------------------------
+# PersistentVolumeClaim
+# -------------------------------
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: app-pvc
+  namespace: "2401041"
+spec:
+  storageClassName: local-path
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+
+
 ---
 apiVersion: apps/v1
 kind: Deployment
