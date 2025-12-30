@@ -571,7 +571,7 @@ export default function Home() {
                   className="flex items-center gap-2 text-gray-400"
                 >
                   <FaUser className="text-blue-500" />
-                  <span>Vivek Kamble</span>
+                  <span>Radha Deshmukh</span>
                 </motion.div>
                 <motion.div
                   whileHover={{ x: 5 }}
@@ -585,7 +585,7 @@ export default function Home() {
                   className="flex items-center gap-2 text-gray-400"
                 >
                   <FaIdCard className="text-purple-500" />
-                  <span>Roll No: 2401084</span>
+                  <span>Roll No: 2401041</span>
                 </motion.div>
               </div>
             </motion.div>
@@ -608,7 +608,7 @@ export default function Home() {
                 className="flex items-center gap-2 text-gray-400 text-sm"
               >
                 <FaCode className="text-blue-500" />
-                <span>Developed with ❤️ by Vivek Kamble</span>
+                <span>Developed with ❤️ by Radha Deshmukh</span>
               </motion.div>
             </div>
           </motion.div>
